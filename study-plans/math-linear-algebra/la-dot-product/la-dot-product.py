@@ -7,4 +7,6 @@ def dot_product(x, y):
     """
     x = np.asarray(x, dtype = float)
     y = np.asarray(y, dtype = float)
+    if x.shape != y.shape:
+        raise ValueError('arrays must have same length')
     return np.dot(x,y)
