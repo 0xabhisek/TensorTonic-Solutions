@@ -6,5 +6,5 @@ def euclidean_distance(x, y):
     """
     x = np.asarray(x, dtype = float)
     y = np.asarray(y, dtype = float)
-    d = (np.sum((x-y)**2))**0.5
+    d = np.linalg.norm(x-y)
     return d
