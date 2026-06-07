@@ -1,0 +1,1 @@
+NumPy's `np.corrcoef` expects each row to be a variable and each column to be an observation. Since our data matrix X has samples as rows and features as columns, we transpose it with `X.T` before passing it in.
