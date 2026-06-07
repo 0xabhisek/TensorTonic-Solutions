@@ -4,9 +4,7 @@ def sample_var_std(x):
     """
     Returns: dict with 'variance' and 'std_dev' as floats.
     """
-    x = np.asarray(x, dtype =  float)
-    n = len(x)
-    mean = np.mean(x)
-    var = float(np.sum((x - mean) ** 2)/(n-1))
-    std = float(np.sqrt(var))
-    return {'variance': var, 'std_dev': std}
+    x = np.array(x, dtype = float)
+    s = np.std(x, ddof = 1)
+    var = s*s
+    return {'variance': var, 'std_dev': s}
