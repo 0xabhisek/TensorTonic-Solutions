@@ -5,12 +5,13 @@ def clt_confidence_interval(data, confidence):
     """
     Returns: [mean, std_error, ci_lower, ci_upper] as a list.
     """
-    x = np.asarray(data, dtype = float) 
-    mean = round(float(np.mean(x)),4)
+    x = np.array(data,dtype = float)
     n = len(x)
-    se = round(float(np.std(x,ddof = 1)/(n**0.5)),4)
-    z = round(float(stats.norm.ppf((1 + confidence) / 2)), 4)
-    ci_lower = round(mean - z * se, 4)
-    ci_upper = round(mean + z * se, 4)
-    return [mean, se, ci_lower, ci_upper]
+    r = lambda x: round(float(x),4)
+    mean = r(np.sum(x)/n)
+    std_error = r(np.std(x,ddof = 1)/(n**0.5))
+    z = r(stats.norm.ppf((1+confidence)/2))
+    ci_lower = r(mean - z*std_error)
+    ci_upper = r(mean+z*std_error)
+    return [mean,std_error,ci_lower,ci_upper]
     
