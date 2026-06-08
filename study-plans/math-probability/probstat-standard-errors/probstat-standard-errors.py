@@ -1,25 +1,22 @@
-import numpy as np
-
 def standard_errors(samples):
-    """
-    Returns: dict with 'standard_errors' (list of floats) and 'mean_se'.
-    """
-    ses = []
 
-    for l in samples:
-        l = np.asarray(l, dtype=float)
+    r = lambda x: round(float(x), 4)
 
-        n = len(l)
+    se = []
 
-        s = np.std(l, ddof=1)
+    for sample in samples:
 
-        se = round(float(s / np.sqrt(n)), 4)
+        sample = np.array(sample, dtype=float)
 
-        ses.append(se)
+        se_i = np.std(sample, ddof=1) / np.sqrt(len(sample))
 
-    mean_se = round(float(np.mean(ses)), 4)
+        se.append(r(se_i))
+
+    mean_se = r(np.mean(se))
 
     return {
-        "standard_errors": ses,
+        "standard_errors": se,
         "mean_se": mean_se
     }
+
+    
