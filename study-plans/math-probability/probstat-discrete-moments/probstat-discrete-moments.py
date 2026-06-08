@@ -1,10 +1,14 @@
+import numpy as np
 def discrete_moments(values, probabilities):
     """
     Returns: [E_X, E_X2, variance, std_dev] as a list.
     """
-    ex = round(sum((x*p) for x,p in zip(values , probabilities)), 4)
-    ex2 = round(sum(x*x*p for (x,p) in zip(values , probabilities)), 4)
-    var = round(ex2 - (ex ** 2), 4)
-    std = round((var ** 0.5), 4)
+    r = lambda x : round(x,4)
+    x = np.array(values,dtype = float)
+    px = np.array(probabilities, dtype = float)
+    E_X = r(x @ px)
+    E_X2 = r((x**2) @ px)
+    var = r(E_X2 - (E_X)**2)
+    std_dev = r((var)**0.5)
 
-    return [ex, ex2, var, std]
+    return [E_X,E_X2,var, std_dev]
