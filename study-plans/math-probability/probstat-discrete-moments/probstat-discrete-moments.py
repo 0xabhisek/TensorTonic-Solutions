@@ -7,7 +7,7 @@ def discrete_moments(values, probabilities):
     x = np.array(values,dtype = float)
     px = np.array(probabilities, dtype = float)
     E_X = r(x @ px)
-    E_X2 = r((x**2) @ px)
+    E_X2 = r((x*x) @ px)
     var = r(E_X2 - (E_X)**2)
     std_dev = r((var)**0.5)
 
