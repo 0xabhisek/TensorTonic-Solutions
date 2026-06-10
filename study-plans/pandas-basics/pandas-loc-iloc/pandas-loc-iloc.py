@@ -8,4 +8,5 @@ def iloc_selection(data, row, col):
     ele = df.iloc[row,col]
     rv = df.iloc[row,:].tolist()
     cv = df.iloc[:,col].tolist()
+
     return [ele,rv,cv]
