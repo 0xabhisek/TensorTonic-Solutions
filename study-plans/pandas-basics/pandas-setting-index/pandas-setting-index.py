@@ -6,11 +6,9 @@ def set_index_column(data, index_col):
     """
     df = pd.DataFrame(data)
     df = df.set_index(index_col)
-    index_values = df.index.to_list()    
-    columns = df.columns
-    
+
     return {
-        'index_values' : index_values,
-        'columns': columns,
-        'data': df.to_dict('list')
+        "index_values": df.index.tolist(),
+        "columns": df.columns.tolist(),
+        "data": df.to_dict("list")
     }
