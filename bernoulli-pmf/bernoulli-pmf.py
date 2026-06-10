@@ -8,11 +8,7 @@ def bernoulli_pmf_and_moments(x, p):
     pmf = []
     x = np.array(x, dtype = float)
     n = len(x)
-    for j in x:
-        if j == 1:
-            pmf.append(p)
-        else:
-            pmf.append(1-p)
+    pmf = [ p if j == 1 else (1 - p) for j in x]
 
     pmf = np.array(pmf)
     mu = p
