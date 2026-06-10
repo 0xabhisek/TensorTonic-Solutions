@@ -1,16 +1,16 @@
 import pandas as pd
 
 def data_types_overview(data):
-    """
-    Returns: dict with 'dtypes', 'type_counts', 'num_columns'
-    """
     df = pd.DataFrame(data)
 
-    dtypes = {col: str(dtype) for col, dtype in df.dtypes.items()}
-
+    dtypes = {}
     type_counts = {}
-    for dtype in dtypes.values():
-        type_counts[dtype] = type_counts.get(dtype, 0) + 1
+
+    for col, dtype in df.dtypes.items():
+        dtype_str = str(dtype)
+
+        dtypes[col] = dtype_str
+        type_counts[dtype_str] = type_counts.get(dtype_str, 0) + 1
 
     return {
         "dtypes": dtypes,
