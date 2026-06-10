@@ -6,7 +6,8 @@ def reset_index_demo(data, index_col):
     """
     df = pd.DataFrame(data)
     df = df.set_index(index_col)
-    before = df.columns.to_list()
-    df = df.reset_index()
-    after = df.columns.tolist()
-    return [before,after]
+    bef = df.columns.tolist()
+    df = df.reset_index(drop = False)
+    af = df.columns.tolist()
+    return [bef,af]
+    
