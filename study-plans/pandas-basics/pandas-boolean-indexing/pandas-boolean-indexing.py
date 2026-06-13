@@ -5,11 +5,6 @@ def boolean_filter(data, column, threshold):
     Returns: dict with 'filtered_data' (dict) and 'count' (int)
     """
     df = pd.DataFrame(data)
-    dff = df[df[column] > threshold]
-    
+    f = df[df[column] > threshold]
 
-    return {
-'filtered_data': dff.to_dict('list'),
-        'count': len(dff)
-        
-    }
+    return {'filtered_data': f.to_dict('list'), 'count': len(f)}
