@@ -4,9 +4,10 @@ def reshape_array(data, operation):
     """
     Returns: ndarray of float64 with shape determined by the operation
     """
-    arr =  np.array(data, dtype = np.float64)
+    arr = np.array(data, dtype=np.float64)
     if operation == 'flatten':
-        return arr.flatten()
-    elif operation == 'transpose':
+        return arr.reshape(-1)
+    if operation == 'transpose':
         return arr.T.copy()
-    return np.expand_dims(arr,axis = 0)
+    return np.expand_dims(arr, axis=0)
+    
