@@ -6,7 +6,6 @@ def iloc_selection(data, row, col):
     """
     df = pd.DataFrame(data)
     ele = df.iloc[row,col]
-    rv = df.iloc[row,:].tolist()
-    cv = df.iloc[:,col].tolist()
-
-    return [ele,rv,cv]
+    r = df.iloc[row,:]
+    c = df.iloc[:,col]
+    return [ele,r,c]
