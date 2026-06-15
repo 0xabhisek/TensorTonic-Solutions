@@ -6,9 +6,10 @@ def inspect_dataframe(data):
     'dtypes' (dict), 'total_values' (int)
     """
     df = pd.DataFrame(data)
-    r = len(df)
-    c = df.shape[1]
-    col = df.columns.tolist()
-    dt = {c : str(dtype) for c,dtype in df.dtypes.items()}
-    tv = r*c
-    return { 'rows': r, 'cols': c, 'columns': col, 'dtypes': dt, 'total_values': tv}
+    return {
+        "rows": int(df.shape[0]),
+        "cols": int(df.shape[1]),
+        "columns": df.columns.tolist(),
+        "dtypes": {col: str(dtype) for col, dtype in df.dtypes.items()},
+        "total_values": int(df.size)
+    }
