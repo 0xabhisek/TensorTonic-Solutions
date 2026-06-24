@@ -10,7 +10,7 @@ def linear_regression(X, y, lr, epochs):
     w = np.zeros(d, dtype=np.float64)
     b = 0.0
 
-    for _ in range(epochs):
+    for i in range(epochs):
 
         # predictions
         y_hat = X @ w + b
