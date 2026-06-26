@@ -5,7 +5,7 @@ def vector_norms(v):
     Returns: float64 array of shape (3,) containing [L1, L2, L-inf] norms.
     """
     v = np.array(v)
-    v1 = np.sum(np.abs(v))
+    v1 = np.linalg.norm(v, ord = 1)
     v2 = np.linalg.norm(v)
-    v3 = np.max(np.abs(v))
+    v3 = np.linalg.norm(v, ord = np.inf)
     return np.array([v1,v2,v3])
