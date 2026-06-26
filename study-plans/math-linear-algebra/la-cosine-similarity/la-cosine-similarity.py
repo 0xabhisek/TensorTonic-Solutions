@@ -4,11 +4,12 @@ def cosine_similarity(a, b):
     """
     Returns: float in [-1, 1], cosine similarity between a and b.
     """
-    x = np.asarray(a,dtype = float)
-    y = np.asarray(b, dtype = float)
-    m = np.dot(x,y)
-    n = np.linalg.norm(x) * np.linalg.norm(y)
-    if n < 1e-10:
+    e = 1e-6
+    a = np.array(a)
+    b = np.array(b)
+    norma = np.linalg.norm(a)
+    normb = np.linalg.norm(b)
+    if norma < e or normb < e:
         return 0.0
-    
-    return m/n
+    coss = np.dot(a,b)/(norma*normb)
+    return coss
