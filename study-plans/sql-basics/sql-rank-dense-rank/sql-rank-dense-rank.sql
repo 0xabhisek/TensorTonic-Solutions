@@ -1,6 +1,8 @@
--- Write your SQL query here
-select model_name, dataset, accuracy,
-    rank() over (partition by dataset order by accuracy desc) as accuracy_rank,
-    dense_rank() over (partition by dataset order by accuracy desc) as accuracy_dense_rank
-from model_metrics
-order by dataset, accuracy desc, model_name;
+SELECT  model_name, dataset, accuracy, 
+RANK() OVER ( PARTITION BY dataset ORDER BY accuracy DESC ) as accuracy_rank,
+DENSE_RANK() OVER ( PARTITION BY dataset ORDER BY accuracy DESC ) AS accuracy_dense_rank,
+FROM model_metrics
+ORDER BY
+dataset ASC,
+accuracy DESC,
+model_name ASC
