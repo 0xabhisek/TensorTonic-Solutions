@@ -1,5 +1,5 @@
 -- Write your SQL query here
-SELECT username, segment, engagement_score,
-       ROW_NUMBER() OVER (PARTITION BY segment ORDER BY engagement_score DESC, username ASC) AS activity_rank
-FROM user_activity
-ORDER BY segment ASC, activity_rank ASC;
+select username, segment, engagement_score,
+    row_number() over (partition by segment order by engagement_score desc) as activity_rank
+from user_activity
+order by segment asc, activity_rank asc
