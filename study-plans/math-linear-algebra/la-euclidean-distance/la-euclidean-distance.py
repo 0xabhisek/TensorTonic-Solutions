@@ -4,7 +4,6 @@ def euclidean_distance(x, y):
     """
     Returns: float, the Euclidean distance between x and y.
     """
-    x = np.asarray(x, dtype = float)
-    y = np.asarray(y, dtype = float)
-    d = np.linalg.norm(x-y)
-    return d
+    x = np.array(x)
+    y = np.array(y)
+    return float(np.sqrt(np.sum((x-y)**2)))
