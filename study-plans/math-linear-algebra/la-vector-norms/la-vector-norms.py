@@ -6,6 +6,6 @@ def vector_norms(v):
     """
     v = np.array(v)
     v1 = np.linalg.norm(v, ord = 1)
-    v2 = np.linalg.norm(v)
+    v2 = np.linalg.norm(v, ord = 2)
     v3 = np.linalg.norm(v, ord = np.inf)
     return np.array([v1,v2,v3])
