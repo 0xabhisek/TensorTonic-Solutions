@@ -1,18 +1,20 @@
 import torch
+import numpy as np
 
 def tensor_op(x, y, op):
     """
     Returns: list (result tensor converted via .tolist())
     """
-    x = torch.tensor(x, dtype = torch.float32)
-    y = torch.tensor(y, dtype = torch.float32)
+    X = torch.tensor(x)
+    Y = torch.tensor(y)
     if op == 'add':
-        return (x + y).tolist()
-    elif op == 'multiply':
-        return (x * y).tolist()
+        return torch.add(X,Y).tolist()
     elif op == 'matmul':
-        return (x @ y).tolist()
+        return torch.matmul(X,Y).tolist()
+    elif op == 'multiply':
+        return torch.mul(X,Y).tolist()
     elif op == 'power':
-        return (x ** y).tolist()
-    elif op == 'max':
-        return torch.max(x,y).tolist()
+        return np.power(X,Y).tolist()
+    else:
+        return torch.max(X,Y).tolist()
+    
