@@ -4,9 +4,9 @@ def create_tensor(method, shape, value=0.0):
     """
     Returns: list
     """
-    if method == 'zeros':
+    if method == "zeros":
         return torch.zeros(shape).tolist()
-    elif method == 'ones':
+    elif method == "ones":
         return torch.ones(shape).tolist()
-    elif method == 'full':
+    elif method == "full":
         return torch.full(shape, value).tolist()
