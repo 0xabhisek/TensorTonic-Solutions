@@ -1,9 +1,7 @@
 def quadratic_minimum(a, b, c):
-    """
-    Returns: dict with 'x_star' and 'f_min' (floats), each rounded to 6 decimals
-    """
-    xd = -b/(2*a)
-    fmin = c - (b*b)/(4*a)
-
-    return {"x_star": xd,
-           "f_min": fmin}
+    x_star = -b / (2.0 * a)
+    f_min = c - (b * b) / (4.0 * a)
+    return {
+        "x_star": round(float(x_star), 6),
+        "f_min": round(float(f_min), 6),
+    }
